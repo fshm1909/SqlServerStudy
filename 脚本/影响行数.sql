@@ -1,3 +1,0 @@
---查询影响的行数
-SELECT * FROM Class
-SELECT @@ROWCOUNT
