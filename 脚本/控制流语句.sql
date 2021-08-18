@@ -65,6 +65,13 @@ SELECT * FROM Class
 
 --TRY/CATCH 语句 *****************************************************************************
 BEGIN TRY
+	--手动引发错误
+	--RAISERROR(
+	--'手动引发错误'
+	--,2
+	--,3
+	--)
+	
 	INSERT INTO Class(ID,ClassName) VALUES(100,'十二年（1）班');
 END TRY
 BEGIN CATCH
@@ -74,6 +81,8 @@ BEGIN CATCH
 	,ERROR_STATE()--
 	,ERROR_PROCEDURE()--导致错误的存储过程的名称
 	,ERROR_LINE()--错误所在行号
-	,ERROR_MESSAGE()--消息文本
+	,ERROR_MESSAGE();--消息文本
+
+	THROW;--重新抛出错误
 END CATCH
 
