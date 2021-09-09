@@ -22,3 +22,28 @@ WHERE Student.ID IS NULL--去掉交集部分
 SELECT * FROM Student
 FULL OUTER JOIN Student_Info ON Student_Info.StudentID=Student.ID
 WHERE Student_Info.ID IS NULL OR Student.ID IS NULL--去掉交集部分
+
+--交叉连接
+SELECT * FROM Student
+CROSS JOIN Student_Info
+
+
+
+
+--例子解析***********************************************************************
+
+--交叉连接，等于左右表数据都查询出来
+SELECT * FROM Student
+CROSS JOIN Student_Info
+
+--取左一条数据和右表交叉连接，等于左表一条记录连接了右表所有数据
+SELECT * FROM Student
+CROSS JOIN Student_Info
+WHERE Student.ID=1
+
+
+SELECT * FROM Student
+LEFT JOIN Student_Info ON Student_Info.StudentID=Student.ID 
+WHERE Student.ID=1
+
+
