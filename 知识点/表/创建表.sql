@@ -7,6 +7,8 @@ create table tb_a
 	--ID int NOT NULL PRIMARY KEY	--PRIMARY KEY：主键约束
 	Field1 NVARCHAR(50)		--【字段标准】：字段名称 数据类型 （必填）
 	,Field2 NVARCHAR(50) NULL	--NULL：是否允许null值（默认NOT NULL，一般显示声明，因为会有很多设置会改变这个默认值）；
+
+	--【标识列】
 	,Field3 int identity(0,1) NOT NULL		--IDENTITY(0,1)表示标识规范，标识种子为0（初始值），标识增量为1;可以写IDENTITY，没有括号，默认为(1,1)；标识列必须为数值类型；不能和默认值一起使用；【只允许为每个表指定一个标识列】。
 
 	--【键约束】（在表创建时的约束名称都是系统自动生成的）
@@ -26,7 +28,7 @@ create table tb_a
 	ON DELETE NO ACTION	--默认值：不执行任何操作	
 
 	,Field11 int NULL FOREIGN KEY REFERENCES tb_b(Field2)	
-	ON UPDATE CASCADE	--级联：指定如果试图更新某一行中的键值 ，而该行的键值被其他表的现有行中的外键所引用，则组成外键的所有值也将更新到为该键指定的新值。 (如果 timestamp 列是外键或被引用键的一部分，则不能指定 CASCADE。 )
+	ON UPDATE cascade	--级联：指定如果试图更新某一行中的键值 ，而该行的键值被其他表的现有行中的外键所引用，则组成外键的所有值也将更新到为该键指定的新值。 (如果 timestamp 列是外键或被引用键的一部分，则不能指定 CASCADE。 )
 	ON DELETE CASCADE	--级联：指定如果试图删除某一行，而该行的键被其他表的现有行中的外键所引用，则也将删除所有包含那些外键的行。
 
 	,Field12 int NULL FOREIGN KEY REFERENCES tb_c(Field1)	
@@ -40,8 +42,7 @@ create table tb_a
 	
 	--【唯一约束】
 	,Field14 int NOT NUll unique
-
-
+	
 
 	--【默认值约束】
 	,Field15 VARCHAR(100) default('默认值') NULL		--default:默认值
