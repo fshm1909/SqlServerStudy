@@ -1,5 +1,6 @@
 --序列像表中的标识列（identity）
 --规则类似表的check约束，默认值类似表的默认值约束，序列类似表的identity
+--微软文档：https://docs.microsoft.com/zh-cn/sql/relational-databases/sequence-numbers/sequence-numbers?view=sql-server-ver15
 
 
 --创建序列
